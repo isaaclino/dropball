@@ -1,0 +1,1437 @@
+
+dropball.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         000000f2  00800100  000007cc  00000860  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000007cc  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000016  008001f2  008001f2  00000952  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  00000954  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000085  00000000  00000000  00001020  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 000000a0  00000000  00000000  000010a8  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000ca6  00000000  00000000  00001148  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000321  00000000  00000000  00001dee  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000553  00000000  00000000  0000210f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000019c  00000000  00000000  00002664  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000318  00000000  00000000  00002800  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000095a  00000000  00000000  00002b18  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   8:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  10:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  1c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  28:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  34:	0c 94 b1 02 	jmp	0x562	; 0x562 <__vector_13>
+  38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  40:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  74:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  78:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e4       	ldi	r29, 0x40	; 64
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ec ec       	ldi	r30, 0xCC	; 204
+  a0:	f7 e0       	ldi	r31, 0x07	; 7
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a2 3f       	cpi	r26, 0xF2	; 242
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	12 e0       	ldi	r17, 0x02	; 2
+  b4:	a2 ef       	ldi	r26, 0xF2	; 242
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a8 30       	cpi	r26, 0x08	; 8
+  be:	b1 07       	cpc	r27, r17
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0e 94 2d 03 	call	0x65a	; 0x65a <main>
+  c6:	0c 94 e4 03 	jmp	0x7c8	; 0x7c8 <_exit>
+
+000000ca <__bad_interrupt>:
+  ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <SetBit>:
+#define _bit_h
+
+// Bit-access functions
+unsigned char SetBit(unsigned char x, unsigned char k, unsigned char b)
+{
+    return (b ? x | (0x01 << k) : x & ~(0x01 << k));
+  ce:	44 23       	and	r20, r20
+  d0:	51 f0       	breq	.+20     	; 0xe6 <SetBit+0x18>
+  d2:	41 e0       	ldi	r20, 0x01	; 1
+  d4:	50 e0       	ldi	r21, 0x00	; 0
+  d6:	9a 01       	movw	r18, r20
+  d8:	02 c0       	rjmp	.+4      	; 0xde <SetBit+0x10>
+  da:	22 0f       	add	r18, r18
+  dc:	33 1f       	adc	r19, r19
+  de:	6a 95       	dec	r22
+  e0:	e2 f7       	brpl	.-8      	; 0xda <SetBit+0xc>
+  e2:	82 2b       	or	r24, r18
+  e4:	08 95       	ret
+  e6:	21 e0       	ldi	r18, 0x01	; 1
+  e8:	30 e0       	ldi	r19, 0x00	; 0
+  ea:	a9 01       	movw	r20, r18
+  ec:	02 c0       	rjmp	.+4      	; 0xf2 <SetBit+0x24>
+  ee:	44 0f       	add	r20, r20
+  f0:	55 1f       	adc	r21, r21
+  f2:	6a 95       	dec	r22
+  f4:	e2 f7       	brpl	.-8      	; 0xee <SetBit+0x20>
+  f6:	ba 01       	movw	r22, r20
+  f8:	60 95       	com	r22
+  fa:	86 23       	and	r24, r22
+}
+  fc:	08 95       	ret
+
+000000fe <GetBit>:
+unsigned char GetBit(unsigned char x, unsigned char k)
+{
+    return ((x & (0x01 << k)) != 0);
+  fe:	90 e0       	ldi	r25, 0x00	; 0
+ 100:	02 c0       	rjmp	.+4      	; 0x106 <GetBit+0x8>
+ 102:	95 95       	asr	r25
+ 104:	87 95       	ror	r24
+ 106:	6a 95       	dec	r22
+ 108:	e2 f7       	brpl	.-8      	; 0x102 <GetBit+0x4>
+}
+ 10a:	81 70       	andi	r24, 0x01	; 1
+ 10c:	08 95       	ret
+
+0000010e <delay_ms>:
+   }
+}
+
+void delay_ms(int miliSec) //for 8 Mhz crystal
+
+{
+ 10e:	ac 01       	movw	r20, r24
+    int i,j;
+    for(i=0;i<miliSec;i++)
+ 110:	18 16       	cp	r1, r24
+ 112:	19 06       	cpc	r1, r25
+ 114:	54 f0       	brlt	.+20     	; 0x12a <delay_ms+0x1c>
+ 116:	08 95       	ret
+    for(j=0;j<775;j++)
+  {
+   asm("nop");
+ 118:	00 00       	nop
+ 11a:	01 97       	sbiw	r24, 0x01	; 1
+void delay_ms(int miliSec) //for 8 Mhz crystal
+
+{
+    int i,j;
+    for(i=0;i<miliSec;i++)
+    for(j=0;j<775;j++)
+ 11c:	e9 f7       	brne	.-6      	; 0x118 <delay_ms+0xa>
+
+void delay_ms(int miliSec) //for 8 Mhz crystal
+
+{
+    int i,j;
+    for(i=0;i<miliSec;i++)
+ 11e:	2f 5f       	subi	r18, 0xFF	; 255
+ 120:	3f 4f       	sbci	r19, 0xFF	; 255
+ 122:	24 17       	cp	r18, r20
+ 124:	35 07       	cpc	r19, r21
+ 126:	29 f4       	brne	.+10     	; 0x132 <delay_ms+0x24>
+ 128:	08 95       	ret
+ 12a:	20 e0       	ldi	r18, 0x00	; 0
+ 12c:	30 e0       	ldi	r19, 0x00	; 0
+   }
+}
+
+void delay_ms(int miliSec) //for 8 Mhz crystal
+
+{
+ 12e:	67 e0       	ldi	r22, 0x07	; 7
+ 130:	73 e0       	ldi	r23, 0x03	; 3
+ 132:	cb 01       	movw	r24, r22
+ 134:	f1 cf       	rjmp	.-30     	; 0x118 <delay_ms+0xa>
+
+00000136 <LCD_WriteData>:
+   CLR_BIT(CONTROL_BUS,E);
+   delay_ms(2); // ClearScreen requires 1.52ms to execute
+}
+
+void LCD_WriteData(unsigned char Data) {
+   SET_BIT(CONTROL_BUS,RS);
+ 136:	16 9a       	sbi	0x02, 6	; 2
+   DATA_BUS = Data;
+ 138:	8b b9       	out	0x0b, r24	; 11
+   SET_BIT(CONTROL_BUS,E);
+ 13a:	17 9a       	sbi	0x02, 7	; 2
+   asm("nop");
+ 13c:	00 00       	nop
+   CLR_BIT(CONTROL_BUS,E);
+ 13e:	17 98       	cbi	0x02, 7	; 2
+   delay_ms(1);
+ 140:	81 e0       	ldi	r24, 0x01	; 1
+ 142:	90 e0       	ldi	r25, 0x00	; 0
+ 144:	0e 94 87 00 	call	0x10e	; 0x10e <delay_ms>
+}
+ 148:	08 95       	ret
+
+0000014a <LCD_WriteCommand>:
+	LCD_WriteCommand(0x01);
+	delay_ms(10);						 
+}
+
+void LCD_WriteCommand (unsigned char Command) {
+   CLR_BIT(CONTROL_BUS,RS);
+ 14a:	16 98       	cbi	0x02, 6	; 2
+   DATA_BUS = Command;
+ 14c:	8b b9       	out	0x0b, r24	; 11
+   SET_BIT(CONTROL_BUS,E);
+ 14e:	17 9a       	sbi	0x02, 7	; 2
+   asm("nop");
+ 150:	00 00       	nop
+   CLR_BIT(CONTROL_BUS,E);
+ 152:	17 98       	cbi	0x02, 7	; 2
+   delay_ms(2); // ClearScreen requires 1.52ms to execute
+ 154:	82 e0       	ldi	r24, 0x02	; 2
+ 156:	90 e0       	ldi	r25, 0x00	; 0
+ 158:	0e 94 87 00 	call	0x10e	; 0x10e <delay_ms>
+}
+ 15c:	08 95       	ret
+
+0000015e <LCD_Cursor>:
+      LCD_WriteData(*string++);
+   }
+}
+
+void LCD_Cursor(unsigned char column) {
+   if ( column < 17 ) { // 16x1 LCD: column < 9
+ 15e:	81 31       	cpi	r24, 0x11	; 17
+ 160:	20 f4       	brcc	.+8      	; 0x16a <LCD_Cursor+0xc>
+						// 16x2 LCD: column < 17
+      LCD_WriteCommand(0x80 + column - 1);
+ 162:	81 58       	subi	r24, 0x81	; 129
+ 164:	0e 94 a5 00 	call	0x14a	; 0x14a <LCD_WriteCommand>
+ 168:	08 95       	ret
+   } else {
+      LCD_WriteCommand(0xB8 + column - 9);	// 16x1 LCD: column - 1
+ 16a:	81 55       	subi	r24, 0x51	; 81
+ 16c:	0e 94 a5 00 	call	0x14a	; 0x14a <LCD_WriteCommand>
+ 170:	08 95       	ret
+
+00000172 <LCD_ClearScreen>:
+#define E 7			// pin number of uC connected to pin 6 of LCD disp.
+
+/*-------------------------------------------------------------------------*/
+
+void LCD_ClearScreen(void) {
+   LCD_WriteCommand(0x01);
+ 172:	81 e0       	ldi	r24, 0x01	; 1
+ 174:	0e 94 a5 00 	call	0x14a	; 0x14a <LCD_WriteCommand>
+}
+ 178:	08 95       	ret
+
+0000017a <LCD_DisplayString>:
+   asm("nop");
+   CLR_BIT(CONTROL_BUS,E);
+   delay_ms(1);
+}
+
+void LCD_DisplayString( unsigned char column, const unsigned char* string) {
+ 17a:	ff 92       	push	r15
+ 17c:	0f 93       	push	r16
+ 17e:	1f 93       	push	r17
+ 180:	cf 93       	push	r28
+ 182:	df 93       	push	r29
+ 184:	f8 2e       	mov	r15, r24
+ 186:	eb 01       	movw	r28, r22
+   LCD_ClearScreen();
+ 188:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+   unsigned char c = column;
+   while(*string) {
+ 18c:	88 81       	ld	r24, Y
+ 18e:	88 23       	and	r24, r24
+ 190:	91 f0       	breq	.+36     	; 0x1b6 <LCD_DisplayString+0x3c>
+   asm("nop");
+   CLR_BIT(CONTROL_BUS,E);
+   delay_ms(1);
+}
+
+void LCD_DisplayString( unsigned char column, const unsigned char* string) {
+ 192:	8e 01       	movw	r16, r28
+ 194:	0f 5f       	subi	r16, 0xFF	; 255
+ 196:	1f 4f       	sbci	r17, 0xFF	; 255
+   LCD_ClearScreen();
+   unsigned char c = column;
+ 198:	8f 2d       	mov	r24, r15
+ 19a:	01 c0       	rjmp	.+2      	; 0x19e <LCD_DisplayString+0x24>
+   while(*string) {
+      LCD_Cursor(c++);
+ 19c:	8f 2d       	mov	r24, r15
+ 19e:	f8 2e       	mov	r15, r24
+ 1a0:	f3 94       	inc	r15
+ 1a2:	0e 94 af 00 	call	0x15e	; 0x15e <LCD_Cursor>
+      LCD_WriteData(*string++);
+ 1a6:	89 91       	ld	r24, Y+
+ 1a8:	0e 94 9b 00 	call	0x136	; 0x136 <LCD_WriteData>
+}
+
+void LCD_DisplayString( unsigned char column, const unsigned char* string) {
+   LCD_ClearScreen();
+   unsigned char c = column;
+   while(*string) {
+ 1ac:	f8 01       	movw	r30, r16
+ 1ae:	81 91       	ld	r24, Z+
+ 1b0:	8f 01       	movw	r16, r30
+ 1b2:	88 23       	and	r24, r24
+ 1b4:	99 f7       	brne	.-26     	; 0x19c <LCD_DisplayString+0x22>
+      LCD_Cursor(c++);
+      LCD_WriteData(*string++);
+   }
+}
+ 1b6:	df 91       	pop	r29
+ 1b8:	cf 91       	pop	r28
+ 1ba:	1f 91       	pop	r17
+ 1bc:	0f 91       	pop	r16
+ 1be:	ff 90       	pop	r15
+ 1c0:	08 95       	ret
+
+000001c2 <LCD_init>:
+}
+
+void LCD_init(void) {
+
+    //wait for 100 ms.
+	delay_ms(100);
+ 1c2:	84 e6       	ldi	r24, 0x64	; 100
+ 1c4:	90 e0       	ldi	r25, 0x00	; 0
+ 1c6:	0e 94 87 00 	call	0x10e	; 0x10e <delay_ms>
+	LCD_WriteCommand(0x38);
+ 1ca:	88 e3       	ldi	r24, 0x38	; 56
+ 1cc:	0e 94 a5 00 	call	0x14a	; 0x14a <LCD_WriteCommand>
+	LCD_WriteCommand(0x06);
+ 1d0:	86 e0       	ldi	r24, 0x06	; 6
+ 1d2:	0e 94 a5 00 	call	0x14a	; 0x14a <LCD_WriteCommand>
+	LCD_WriteCommand(0x0f);
+ 1d6:	8f e0       	ldi	r24, 0x0F	; 15
+ 1d8:	0e 94 a5 00 	call	0x14a	; 0x14a <LCD_WriteCommand>
+	LCD_WriteCommand(0x01);
+ 1dc:	81 e0       	ldi	r24, 0x01	; 1
+ 1de:	0e 94 a5 00 	call	0x14a	; 0x14a <LCD_WriteCommand>
+	delay_ms(10);						 
+ 1e2:	8a e0       	ldi	r24, 0x0A	; 10
+ 1e4:	90 e0       	ldi	r25, 0x00	; 0
+ 1e6:	0e 94 87 00 	call	0x10e	; 0x10e <delay_ms>
+}
+ 1ea:	08 95       	ret
+
+000001ec <SMTick1>:
+// ---------------- End User-Defined FSMs ------------------- //
+
+// ----------- Function from User Defined FSMs -------------- //
+int SMTick1(int state)
+{
+	char A0 = PINA & 0x01; //  A0 button or Photo-sensor to start the game "insert the coin"
+ 1ec:	20 b1       	in	r18, 0x00	; 0
+ 1ee:	32 2f       	mov	r19, r18
+ 1f0:	31 70       	andi	r19, 0x01	; 1
+    char A2 = ~PINA & 0x04; // button or sensor to stop 1st 7-seg 
+ 1f2:	20 b1       	in	r18, 0x00	; 0
+ 1f4:	20 95       	com	r18
+ 1f6:	42 2f       	mov	r20, r18
+ 1f8:	44 70       	andi	r20, 0x04	; 4
+    char A3 = ~PINA & 0x08; // button or sensor to stop 2st 7-seg 
+ 1fa:	20 b1       	in	r18, 0x00	; 0
+ 1fc:	20 95       	com	r18
+ 1fe:	52 2f       	mov	r21, r18
+ 200:	58 70       	andi	r21, 0x08	; 8
+	char A4 = ~PINA & 0x10; // button or sensor to stop 3st 7-seg 
+ 202:	20 b1       	in	r18, 0x00	; 0
+ 204:	20 95       	com	r18
+ 206:	62 2f       	mov	r22, r18
+ 208:	60 71       	andi	r22, 0x10	; 16
+	//char A0 = ~PINA & 0x80; // button or sensor to start the game "insert the coin"
+	DDRC = 0xFF;	// Configure port C as output
+ 20a:	2f ef       	ldi	r18, 0xFF	; 255
+ 20c:	27 b9       	out	0x07, r18	; 7
+	
+    switch (state) // ------ STATE TRANSITIONS --------
+ 20e:	84 30       	cpi	r24, 0x04	; 4
+ 210:	91 05       	cpc	r25, r1
+ 212:	a9 f1       	breq	.+106    	; 0x27e <SMTick1+0x92>
+ 214:	85 30       	cpi	r24, 0x05	; 5
+ 216:	91 05       	cpc	r25, r1
+ 218:	94 f4       	brge	.+36     	; 0x23e <SMTick1+0x52>
+ 21a:	81 30       	cpi	r24, 0x01	; 1
+ 21c:	91 05       	cpc	r25, r1
+ 21e:	19 f1       	breq	.+70     	; 0x266 <SMTick1+0x7a>
+ 220:	82 30       	cpi	r24, 0x02	; 2
+ 222:	91 05       	cpc	r25, r1
+ 224:	24 f4       	brge	.+8      	; 0x22e <SMTick1+0x42>
+ 226:	00 97       	sbiw	r24, 0x00	; 0
+ 228:	09 f4       	brne	.+2      	; 0x22c <SMTick1+0x40>
+ 22a:	50 c0       	rjmp	.+160    	; 0x2cc <SMTick1+0xe0>
+ 22c:	47 c0       	rjmp	.+142    	; 0x2bc <SMTick1+0xd0>
+ 22e:	82 30       	cpi	r24, 0x02	; 2
+ 230:	91 05       	cpc	r25, r1
+ 232:	e9 f0       	breq	.+58     	; 0x26e <SMTick1+0x82>
+ 234:	83 30       	cpi	r24, 0x03	; 3
+ 236:	91 05       	cpc	r25, r1
+ 238:	09 f0       	breq	.+2      	; 0x23c <SMTick1+0x50>
+ 23a:	40 c0       	rjmp	.+128    	; 0x2bc <SMTick1+0xd0>
+ 23c:	1c c0       	rjmp	.+56     	; 0x276 <SMTick1+0x8a>
+ 23e:	87 30       	cpi	r24, 0x07	; 7
+ 240:	91 05       	cpc	r25, r1
+ 242:	79 f1       	breq	.+94     	; 0x2a2 <SMTick1+0xb6>
+ 244:	88 30       	cpi	r24, 0x08	; 8
+ 246:	91 05       	cpc	r25, r1
+ 248:	3c f4       	brge	.+14     	; 0x258 <SMTick1+0x6c>
+ 24a:	85 30       	cpi	r24, 0x05	; 5
+ 24c:	91 05       	cpc	r25, r1
+ 24e:	09 f1       	breq	.+66     	; 0x292 <SMTick1+0xa6>
+ 250:	86 30       	cpi	r24, 0x06	; 6
+ 252:	91 05       	cpc	r25, r1
+ 254:	99 f5       	brne	.+102    	; 0x2bc <SMTick1+0xd0>
+ 256:	21 c0       	rjmp	.+66     	; 0x29a <SMTick1+0xae>
+ 258:	88 30       	cpi	r24, 0x08	; 8
+ 25a:	91 05       	cpc	r25, r1
+ 25c:	31 f1       	breq	.+76     	; 0x2aa <SMTick1+0xbe>
+ 25e:	89 30       	cpi	r24, 0x09	; 9
+ 260:	91 05       	cpc	r25, r1
+ 262:	61 f5       	brne	.+88     	; 0x2bc <SMTick1+0xd0>
+ 264:	28 c0       	rjmp	.+80     	; 0x2b6 <SMTick1+0xca>
+        case SM1_start:
+            state = SM1_instertcoin;
+            break;
+
+        case SM1_instertcoin:
+		if (!A0)
+ 266:	33 23       	and	r19, r19
+ 268:	09 f4       	brne	.+2      	; 0x26c <SMTick1+0x80>
+ 26a:	6b c0       	rjmp	.+214    	; 0x342 <SMTick1+0x156>
+ 26c:	2f c0       	rjmp	.+94     	; 0x2cc <SMTick1+0xe0>
+        break;
+		
+		
+		
+		case SM1_wait_coin:
+		if (!A0)
+ 26e:	33 23       	and	r19, r19
+ 270:	09 f4       	brne	.+2      	; 0x274 <SMTick1+0x88>
+ 272:	67 c0       	rjmp	.+206    	; 0x342 <SMTick1+0x156>
+ 274:	6c c0       	rjmp	.+216    	; 0x34e <SMTick1+0x162>
+		}			
+	    break;
+
+
+		case SM1_7seg:
+		if (!A2)
+ 276:	44 23       	and	r20, r20
+ 278:	09 f4       	brne	.+2      	; 0x27c <SMTick1+0x90>
+ 27a:	78 c0       	rjmp	.+240    	; 0x36c <SMTick1+0x180>
+ 27c:	68 c0       	rjmp	.+208    	; 0x34e <SMTick1+0x162>
+		}			
+		break;
+		
+		
+		case SM1_wait_balldrop:
+			if(A2)
+ 27e:	44 23       	and	r20, r20
+ 280:	09 f0       	breq	.+2      	; 0x284 <SMTick1+0x98>
+ 282:	7c c0       	rjmp	.+248    	; 0x37c <SMTick1+0x190>
+				{
+					state = SM1_hole1;
+				}	
+			else if(A3)
+ 284:	55 23       	and	r21, r21
+ 286:	09 f0       	breq	.+2      	; 0x28a <SMTick1+0x9e>
+ 288:	9b c0       	rjmp	.+310    	; 0x3c0 <SMTick1+0x1d4>
+				{
+					state = SM1_hole2;	
+				}
+			else if(A4)
+ 28a:	66 23       	and	r22, r22
+ 28c:	09 f0       	breq	.+2      	; 0x290 <SMTick1+0xa4>
+ 28e:	ba c0       	rjmp	.+372    	; 0x404 <SMTick1+0x218>
+ 290:	6d c0       	rjmp	.+218    	; 0x36c <SMTick1+0x180>
+					state = SM1_wait_balldrop;
+				}		
+		break;	
+		
+		case SM1_hole1:
+			if (A2)
+ 292:	44 23       	and	r20, r20
+ 294:	09 f0       	breq	.+2      	; 0x298 <SMTick1+0xac>
+ 296:	72 c0       	rjmp	.+228    	; 0x37c <SMTick1+0x190>
+ 298:	d7 c0       	rjmp	.+430    	; 0x448 <SMTick1+0x25c>
+			}		
+		break;
+		
+		
+		case SM1_hole2:
+			if (A3)
+ 29a:	55 23       	and	r21, r21
+ 29c:	09 f0       	breq	.+2      	; 0x2a0 <SMTick1+0xb4>
+ 29e:	90 c0       	rjmp	.+288    	; 0x3c0 <SMTick1+0x1d4>
+ 2a0:	d3 c0       	rjmp	.+422    	; 0x448 <SMTick1+0x25c>
+			}		
+		break;
+		
+		
+		case SM1_hole3:
+			if (A4)
+ 2a2:	66 23       	and	r22, r22
+ 2a4:	09 f0       	breq	.+2      	; 0x2a8 <SMTick1+0xbc>
+ 2a6:	ae c0       	rjmp	.+348    	; 0x404 <SMTick1+0x218>
+ 2a8:	cf c0       	rjmp	.+414    	; 0x448 <SMTick1+0x25c>
+		
+		
+		case SM1_playagain:
+		
+		
+		if (lives == 0)
+ 2aa:	80 91 d6 01 	lds	r24, 0x01D6
+ 2ae:	88 23       	and	r24, r24
+ 2b0:	09 f4       	brne	.+2      	; 0x2b4 <SMTick1+0xc8>
+ 2b2:	ee c0       	rjmp	.+476    	; 0x490 <SMTick1+0x2a4>
+ 2b4:	c9 c0       	rjmp	.+402    	; 0x448 <SMTick1+0x25c>
+		}
+		break;	
+		
+		
+		case SM1_finalscore:
+		if (!A0)
+ 2b6:	33 23       	and	r19, r19
+ 2b8:	09 f4       	brne	.+2      	; 0x2bc <SMTick1+0xd0>
+ 2ba:	ea c0       	rjmp	.+468    	; 0x490 <SMTick1+0x2a4>
+   
+    switch (state) // ---- STATE ACTIONS -------
+    {
+		
+		case SM1_start: 
+		score = 0;
+ 2bc:	10 92 f2 01 	sts	0x01F2, r1
+		lives = 3;
+ 2c0:	83 e0       	ldi	r24, 0x03	; 3
+ 2c2:	80 93 d6 01 	sts	0x01D6, r24
+		
+		break;   
+ 2c6:	80 e0       	ldi	r24, 0x00	; 0
+ 2c8:	90 e0       	ldi	r25, 0x00	; 0
+ 2ca:	08 95       	ret
+     
+	    
+		case SM1_instertcoin:
+		if (score == 0)
+ 2cc:	80 91 f2 01 	lds	r24, 0x01F2
+ 2d0:	88 23       	and	r24, r24
+ 2d2:	51 f4       	brne	.+20     	; 0x2e8 <SMTick1+0xfc>
+		{
+		LCD_init();                               //Initialize LCD		
+ 2d4:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <LCD_init>
+		LCD_DisplayString(1,"~ Insert a Coin!");  //Display message wait until insert a coin
+ 2d8:	81 e0       	ldi	r24, 0x01	; 1
+ 2da:	60 e0       	ldi	r22, 0x00	; 0
+ 2dc:	71 e0       	ldi	r23, 0x01	; 1
+ 2de:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+ 2e2:	81 e0       	ldi	r24, 0x01	; 1
+ 2e4:	90 e0       	ldi	r25, 0x00	; 0
+ 2e6:	08 95       	ret
+		} 
+		else
+		{			
+			LCD_ClearScreen();
+ 2e8:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+			LCD_DisplayString(1, " Final Score:  ");
+ 2ec:	81 e0       	ldi	r24, 0x01	; 1
+ 2ee:	61 e1       	ldi	r22, 0x11	; 17
+ 2f0:	71 e0       	ldi	r23, 0x01	; 1
+ 2f2:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+			LCD_WriteData(score + '0');
+ 2f6:	80 91 f2 01 	lds	r24, 0x01F2
+ 2fa:	80 5d       	subi	r24, 0xD0	; 208
+ 2fc:	0e 94 9b 00 	call	0x136	; 0x136 <LCD_WriteData>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 300:	8f ef       	ldi	r24, 0xFF	; 255
+ 302:	9e e9       	ldi	r25, 0x9E	; 158
+ 304:	a4 e2       	ldi	r26, 0x24	; 36
+ 306:	81 50       	subi	r24, 0x01	; 1
+ 308:	90 40       	sbci	r25, 0x00	; 0
+ 30a:	a0 40       	sbci	r26, 0x00	; 0
+ 30c:	e1 f7       	brne	.-8      	; 0x306 <SMTick1+0x11a>
+ 30e:	00 c0       	rjmp	.+0      	; 0x310 <SMTick1+0x124>
+ 310:	00 00       	nop
+			
+			//LCD_ClearScreen();
+			//LCD_DisplayString(1, "  !Game  Over!   Insert a Coin! ");
+			//_delay_ms(3000);
+			
+			LCD_ClearScreen();
+ 312:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+			LCD_DisplayString(1, "~ Insert a Coin!  Last Score:  ");
+ 316:	81 e0       	ldi	r24, 0x01	; 1
+ 318:	61 e2       	ldi	r22, 0x21	; 33
+ 31a:	71 e0       	ldi	r23, 0x01	; 1
+ 31c:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+			LCD_WriteData(score + '0');
+ 320:	80 91 f2 01 	lds	r24, 0x01F2
+ 324:	80 5d       	subi	r24, 0xD0	; 208
+ 326:	0e 94 9b 00 	call	0x136	; 0x136 <LCD_WriteData>
+ 32a:	8f ef       	ldi	r24, 0xFF	; 255
+ 32c:	9e e9       	ldi	r25, 0x9E	; 158
+ 32e:	a4 e2       	ldi	r26, 0x24	; 36
+ 330:	81 50       	subi	r24, 0x01	; 1
+ 332:	90 40       	sbci	r25, 0x00	; 0
+ 334:	a0 40       	sbci	r26, 0x00	; 0
+ 336:	e1 f7       	brne	.-8      	; 0x330 <SMTick1+0x144>
+ 338:	00 c0       	rjmp	.+0      	; 0x33a <SMTick1+0x14e>
+ 33a:	00 00       	nop
+ 33c:	81 e0       	ldi	r24, 0x01	; 1
+ 33e:	90 e0       	ldi	r25, 0x00	; 0
+ 340:	08 95       	ret
+		}
+        break;
+ 
+ 
+		case SM1_wait_coin:
+		 PORTC = 0x3F; // Waiting for coin - 7seg in stand by
+ 342:	8f e3       	ldi	r24, 0x3F	; 63
+ 344:	88 b9       	out	0x08, r24	; 8
+		 PORTB = 0x3F; // Waiting for coin - 7seg in stand by
+ 346:	85 b9       	out	0x05, r24	; 5
+		break;
+ 348:	82 e0       	ldi	r24, 0x02	; 2
+ 34a:	90 e0       	ldi	r25, 0x00	; 0
+ 34c:	08 95       	ret
+
+
+		case SM1_7seg: 
+		 LCD_ClearScreen();
+ 34e:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+		 LCD_DisplayString(1, "Drop the ball...");
+ 352:	81 e0       	ldi	r24, 0x01	; 1
+ 354:	61 e4       	ldi	r22, 0x41	; 65
+ 356:	71 e0       	ldi	r23, 0x01	; 1
+ 358:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+		 score = 0;
+ 35c:	10 92 f2 01 	sts	0x01F2, r1
+		 lives = 3;
+ 360:	83 e0       	ldi	r24, 0x03	; 3
+ 362:	80 93 d6 01 	sts	0x01D6, r24
+		break;
+ 366:	83 e0       	ldi	r24, 0x03	; 3
+ 368:	90 e0       	ldi	r25, 0x00	; 0
+ 36a:	08 95       	ret
+		 
+		case SM1_wait_balldrop:
+		 //  PORTB = 0x01; // Activates 1rd 7seg
+		 //  PORTB = 0x02; // Activates 2rd 7seg
+		 //  PORTB = 0x04; // Activates 3rd 7seg
+		PORTB = 0x07; // Activates ALL 7seg		
+ 36c:	87 e0       	ldi	r24, 0x07	; 7
+ 36e:	85 b9       	out	0x05, r24	; 5
+		PORTC = zero;
+ 370:	80 91 ec 01 	lds	r24, 0x01EC
+ 374:	88 b9       	out	0x08, r24	; 8
+		break;
+ 376:	84 e0       	ldi	r24, 0x04	; 4
+ 378:	90 e0       	ldi	r25, 0x00	; 0
+ 37a:	08 95       	ret
+		
+		
+		case SM1_hole1:
+		  PORTB = 0x01;  // Activates 1rd 7seg
+ 37c:	81 e0       	ldi	r24, 0x01	; 1
+ 37e:	85 b9       	out	0x05, r24	; 5
+		  PORTC = one;   // Writes 1 into first 7seg
+ 380:	80 91 eb 01 	lds	r24, 0x01EB
+ 384:	88 b9       	out	0x08, r24	; 8
+		  LCD_ClearScreen();
+ 386:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+		  LCD_DisplayString(1, "You Got 1 Point ");
+ 38a:	81 e0       	ldi	r24, 0x01	; 1
+ 38c:	62 e5       	ldi	r22, 0x52	; 82
+ 38e:	71 e0       	ldi	r23, 0x01	; 1
+ 390:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+ 394:	8f ef       	ldi	r24, 0xFF	; 255
+ 396:	9e e9       	ldi	r25, 0x9E	; 158
+ 398:	a4 e2       	ldi	r26, 0x24	; 36
+ 39a:	81 50       	subi	r24, 0x01	; 1
+ 39c:	90 40       	sbci	r25, 0x00	; 0
+ 39e:	a0 40       	sbci	r26, 0x00	; 0
+ 3a0:	e1 f7       	brne	.-8      	; 0x39a <SMTick1+0x1ae>
+ 3a2:	00 c0       	rjmp	.+0      	; 0x3a4 <SMTick1+0x1b8>
+ 3a4:	00 00       	nop
+		  _delay_ms(3000);
+		  score += 1;
+ 3a6:	80 91 f2 01 	lds	r24, 0x01F2
+ 3aa:	8f 5f       	subi	r24, 0xFF	; 255
+ 3ac:	80 93 f2 01 	sts	0x01F2, r24
+		  lives -=1;
+ 3b0:	80 91 d6 01 	lds	r24, 0x01D6
+ 3b4:	81 50       	subi	r24, 0x01	; 1
+ 3b6:	80 93 d6 01 	sts	0x01D6, r24
+		  state = SM1_playagain;
+ 3ba:	88 e0       	ldi	r24, 0x08	; 8
+ 3bc:	90 e0       	ldi	r25, 0x00	; 0
+		break;
+ 3be:	08 95       	ret
+		
+		
+		case SM1_hole2:
+		  PORTB = 0x02;  // Activates 2rd 7seg
+ 3c0:	82 e0       	ldi	r24, 0x02	; 2
+ 3c2:	85 b9       	out	0x05, r24	; 5
+		  PORTC = two;   // Writes 2 into second 7seg
+ 3c4:	80 91 ea 01 	lds	r24, 0x01EA
+ 3c8:	88 b9       	out	0x08, r24	; 8
+		  LCD_ClearScreen();
+ 3ca:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+		  LCD_DisplayString(1, "You Got 2 Points");
+ 3ce:	81 e0       	ldi	r24, 0x01	; 1
+ 3d0:	63 e6       	ldi	r22, 0x63	; 99
+ 3d2:	71 e0       	ldi	r23, 0x01	; 1
+ 3d4:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+ 3d8:	8f ef       	ldi	r24, 0xFF	; 255
+ 3da:	9e e9       	ldi	r25, 0x9E	; 158
+ 3dc:	a4 e2       	ldi	r26, 0x24	; 36
+ 3de:	81 50       	subi	r24, 0x01	; 1
+ 3e0:	90 40       	sbci	r25, 0x00	; 0
+ 3e2:	a0 40       	sbci	r26, 0x00	; 0
+ 3e4:	e1 f7       	brne	.-8      	; 0x3de <SMTick1+0x1f2>
+ 3e6:	00 c0       	rjmp	.+0      	; 0x3e8 <SMTick1+0x1fc>
+ 3e8:	00 00       	nop
+		  _delay_ms(3000);
+		  score += 2;
+ 3ea:	80 91 f2 01 	lds	r24, 0x01F2
+ 3ee:	8e 5f       	subi	r24, 0xFE	; 254
+ 3f0:	80 93 f2 01 	sts	0x01F2, r24
+		  lives -=1;
+ 3f4:	80 91 d6 01 	lds	r24, 0x01D6
+ 3f8:	81 50       	subi	r24, 0x01	; 1
+ 3fa:	80 93 d6 01 	sts	0x01D6, r24
+		  state = SM1_playagain;
+ 3fe:	88 e0       	ldi	r24, 0x08	; 8
+ 400:	90 e0       	ldi	r25, 0x00	; 0
+		break;
+ 402:	08 95       	ret
+		
+		
+		case SM1_hole3:
+		  PORTB = 0x04;   // Activates 3rd 7seg
+ 404:	84 e0       	ldi	r24, 0x04	; 4
+ 406:	85 b9       	out	0x05, r24	; 5
+		  PORTC = three;  // Writes 3 into third 7seg
+ 408:	80 91 e9 01 	lds	r24, 0x01E9
+ 40c:	88 b9       	out	0x08, r24	; 8
+		  LCD_ClearScreen();
+ 40e:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+		  LCD_DisplayString(1, "You Got 3 Points");
+ 412:	81 e0       	ldi	r24, 0x01	; 1
+ 414:	64 e7       	ldi	r22, 0x74	; 116
+ 416:	71 e0       	ldi	r23, 0x01	; 1
+ 418:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+ 41c:	8f ef       	ldi	r24, 0xFF	; 255
+ 41e:	9e e9       	ldi	r25, 0x9E	; 158
+ 420:	a4 e2       	ldi	r26, 0x24	; 36
+ 422:	81 50       	subi	r24, 0x01	; 1
+ 424:	90 40       	sbci	r25, 0x00	; 0
+ 426:	a0 40       	sbci	r26, 0x00	; 0
+ 428:	e1 f7       	brne	.-8      	; 0x422 <SMTick1+0x236>
+ 42a:	00 c0       	rjmp	.+0      	; 0x42c <SMTick1+0x240>
+ 42c:	00 00       	nop
+		  _delay_ms(3000);
+		  score += 3;
+ 42e:	80 91 f2 01 	lds	r24, 0x01F2
+ 432:	8d 5f       	subi	r24, 0xFD	; 253
+ 434:	80 93 f2 01 	sts	0x01F2, r24
+		  lives -=1;
+ 438:	80 91 d6 01 	lds	r24, 0x01D6
+ 43c:	81 50       	subi	r24, 0x01	; 1
+ 43e:	80 93 d6 01 	sts	0x01D6, r24
+		state = SM1_playagain;
+ 442:	88 e0       	ldi	r24, 0x08	; 8
+ 444:	90 e0       	ldi	r25, 0x00	; 0
+		break;
+ 446:	08 95       	ret
+	
+
+		case SM1_playagain:
+			LCD_ClearScreen();
+ 448:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+			LCD_DisplayString(1,"  Lives left:  ");
+ 44c:	81 e0       	ldi	r24, 0x01	; 1
+ 44e:	65 e8       	ldi	r22, 0x85	; 133
+ 450:	71 e0       	ldi	r23, 0x01	; 1
+ 452:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+			LCD_WriteData(lives + '0');
+ 456:	80 91 d6 01 	lds	r24, 0x01D6
+ 45a:	80 5d       	subi	r24, 0xD0	; 208
+ 45c:	0e 94 9b 00 	call	0x136	; 0x136 <LCD_WriteData>
+ 460:	8f e7       	ldi	r24, 0x7F	; 127
+ 462:	9e ee       	ldi	r25, 0xEE	; 238
+ 464:	a6 e3       	ldi	r26, 0x36	; 54
+ 466:	81 50       	subi	r24, 0x01	; 1
+ 468:	90 40       	sbci	r25, 0x00	; 0
+ 46a:	a0 40       	sbci	r26, 0x00	; 0
+ 46c:	e1 f7       	brne	.-8      	; 0x466 <SMTick1+0x27a>
+ 46e:	00 c0       	rjmp	.+0      	; 0x470 <SMTick1+0x284>
+ 470:	00 00       	nop
+			_delay_ms(4500);
+			
+			LCD_ClearScreen();
+ 472:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+			LCD_DisplayString(1, "Drop ball again Your Score is: ");
+ 476:	81 e0       	ldi	r24, 0x01	; 1
+ 478:	65 e9       	ldi	r22, 0x95	; 149
+ 47a:	71 e0       	ldi	r23, 0x01	; 1
+ 47c:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+			LCD_WriteData(score + '0');
+ 480:	80 91 f2 01 	lds	r24, 0x01F2
+ 484:	80 5d       	subi	r24, 0xD0	; 208
+ 486:	0e 94 9b 00 	call	0x136	; 0x136 <LCD_WriteData>
+		state = SM1_wait_balldrop;
+ 48a:	84 e0       	ldi	r24, 0x04	; 4
+ 48c:	90 e0       	ldi	r25, 0x00	; 0
+		break;
+ 48e:	08 95       	ret
+			
+		case SM1_finalscore: 
+		PORTC = 0x3F; // Waiting for coin - 7seg in stand by
+ 490:	8f e3       	ldi	r24, 0x3F	; 63
+ 492:	88 b9       	out	0x08, r24	; 8
+		PORTB = 0x3F; // Waiting for coin - 7seg in stand by
+ 494:	85 b9       	out	0x05, r24	; 5
+		
+		LCD_ClearScreen();
+ 496:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+		LCD_DisplayString(1, " Final Score:  ");
+ 49a:	81 e0       	ldi	r24, 0x01	; 1
+ 49c:	61 e1       	ldi	r22, 0x11	; 17
+ 49e:	71 e0       	ldi	r23, 0x01	; 1
+ 4a0:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+		LCD_WriteData(score + '0');
+ 4a4:	80 91 f2 01 	lds	r24, 0x01F2
+ 4a8:	80 5d       	subi	r24, 0xD0	; 208
+ 4aa:	0e 94 9b 00 	call	0x136	; 0x136 <LCD_WriteData>
+ 4ae:	8f ef       	ldi	r24, 0xFF	; 255
+ 4b0:	93 ed       	ldi	r25, 0xD3	; 211
+ 4b2:	a0 e3       	ldi	r26, 0x30	; 48
+ 4b4:	81 50       	subi	r24, 0x01	; 1
+ 4b6:	90 40       	sbci	r25, 0x00	; 0
+ 4b8:	a0 40       	sbci	r26, 0x00	; 0
+ 4ba:	e1 f7       	brne	.-8      	; 0x4b4 <SMTick1+0x2c8>
+ 4bc:	00 c0       	rjmp	.+0      	; 0x4be <SMTick1+0x2d2>
+ 4be:	00 00       	nop
+		_delay_ms(4000);	 
+		 
+		LCD_ClearScreen();
+ 4c0:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_ClearScreen>
+		LCD_DisplayString(1, "  !Game  Over!   Insert a Coin! ");	
+ 4c4:	81 e0       	ldi	r24, 0x01	; 1
+ 4c6:	65 eb       	ldi	r22, 0xB5	; 181
+ 4c8:	71 e0       	ldi	r23, 0x01	; 1
+ 4ca:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_DisplayString>
+ 4ce:	8f ef       	ldi	r24, 0xFF	; 255
+ 4d0:	93 ed       	ldi	r25, 0xD3	; 211
+ 4d2:	a0 e3       	ldi	r26, 0x30	; 48
+ 4d4:	81 50       	subi	r24, 0x01	; 1
+ 4d6:	90 40       	sbci	r25, 0x00	; 0
+ 4d8:	a0 40       	sbci	r26, 0x00	; 0
+ 4da:	e1 f7       	brne	.-8      	; 0x4d4 <SMTick1+0x2e8>
+ 4dc:	00 c0       	rjmp	.+0      	; 0x4de <SMTick1+0x2f2>
+ 4de:	00 00       	nop
+		_delay_ms(4000);
+       
+	    state = SM1_start;
+ 4e0:	80 e0       	ldi	r24, 0x00	; 0
+ 4e2:	90 e0       	ldi	r25, 0x00	; 0
+		default: 
+	//	 state = SM1_start;
+		break;
+    }
+    return state;
+}
+ 4e4:	08 95       	ret
+
+000004e6 <TimerSet>:
+// Internal variables for mapping AVR's ISR to our cleaner TimerISR model.
+unsigned long _avr_timer_M = 1; // Start count from here, down to 0. Default 1ms
+unsigned long _avr_timer_cntcurr = 0; // Current internal count of 1ms ticks
+
+// Set TimerISR() to tick every M ms
+void TimerSet(unsigned long M) {
+ 4e6:	dc 01       	movw	r26, r24
+ 4e8:	cb 01       	movw	r24, r22
+	_avr_timer_M = M;
+ 4ea:	80 93 ed 01 	sts	0x01ED, r24
+ 4ee:	90 93 ee 01 	sts	0x01EE, r25
+ 4f2:	a0 93 ef 01 	sts	0x01EF, r26
+ 4f6:	b0 93 f0 01 	sts	0x01F0, r27
+	_avr_timer_cntcurr = _avr_timer_M;
+ 4fa:	80 93 f8 01 	sts	0x01F8, r24
+ 4fe:	90 93 f9 01 	sts	0x01F9, r25
+ 502:	a0 93 fa 01 	sts	0x01FA, r26
+ 506:	b0 93 fb 01 	sts	0x01FB, r27
+}
+ 50a:	08 95       	ret
+
+0000050c <TimerOn>:
+
+void TimerOn() {
+	// AVR timer/counter controller register TCCR1
+	TCCR1B 	= 0x0B;	// bit3 = 1: CTC mode (clear timer on compare)
+ 50c:	8b e0       	ldi	r24, 0x0B	; 11
+ 50e:	80 93 81 00 	sts	0x0081, r24
+					// 00001011: 0x0B
+					// SO, 8 MHz clock or 8,000,000 /64 = 125,000 ticks/s
+					// Thus, TCNT1 register will count at 125,000 ticks/s
+
+	// AVR output compare register OCR1A.
+	OCR1A 	= 125;	// Timer interrupt will be generated when TCNT1==OCR1A
+ 512:	8d e7       	ldi	r24, 0x7D	; 125
+ 514:	90 e0       	ldi	r25, 0x00	; 0
+ 516:	90 93 89 00 	sts	0x0089, r25
+ 51a:	80 93 88 00 	sts	0x0088, r24
+					// We want a 1 ms tick. 0.001 s * 125,000 ticks/s = 125
+					// So when TCNT1 register equals 125,
+					// 1 ms has passed. Thus, we compare to 125.
+					// AVR timer interrupt mask register
+
+	TIMSK1 	= 0x02; // bit1: OCIE1A -- enables compare match interrupt
+ 51e:	82 e0       	ldi	r24, 0x02	; 2
+ 520:	80 93 6f 00 	sts	0x006F, r24
+
+	//Initialize avr counter
+	TCNT1 = 0;
+ 524:	10 92 85 00 	sts	0x0085, r1
+ 528:	10 92 84 00 	sts	0x0084, r1
+
+	// TimerISR will be called every _avr_timer_cntcurr milliseconds
+	_avr_timer_cntcurr = _avr_timer_M;
+ 52c:	80 91 ed 01 	lds	r24, 0x01ED
+ 530:	90 91 ee 01 	lds	r25, 0x01EE
+ 534:	a0 91 ef 01 	lds	r26, 0x01EF
+ 538:	b0 91 f0 01 	lds	r27, 0x01F0
+ 53c:	80 93 f8 01 	sts	0x01F8, r24
+ 540:	90 93 f9 01 	sts	0x01F9, r25
+ 544:	a0 93 fa 01 	sts	0x01FA, r26
+ 548:	b0 93 fb 01 	sts	0x01FB, r27
+
+	//Enable global interrupts
+	SREG |= 0x80;	// 0x80: 1000000
+ 54c:	8f b7       	in	r24, 0x3f	; 63
+ 54e:	80 68       	ori	r24, 0x80	; 128
+ 550:	8f bf       	out	0x3f, r24	; 63
+}
+ 552:	08 95       	ret
+
+00000554 <TimerOff>:
+
+void TimerOff() {
+	TCCR1B 	= 0x00; // bit3bit2bit1bit0=0000: timer off
+ 554:	10 92 81 00 	sts	0x0081, r1
+}
+ 558:	08 95       	ret
+
+0000055a <TimerISR>:
+
+
+void TimerISR() {
+	TimerFlag = 1;
+ 55a:	81 e0       	ldi	r24, 0x01	; 1
+ 55c:	80 93 fc 01 	sts	0x01FC, r24
+}
+ 560:	08 95       	ret
+
+00000562 <__vector_13>:
+
+
+// In our approach, the C programmer does not touch this ISR, but rather TimerISR()
+ISR(TIMER1_COMPA_vect)
+{
+ 562:	1f 92       	push	r1
+ 564:	0f 92       	push	r0
+ 566:	0f b6       	in	r0, 0x3f	; 63
+ 568:	0f 92       	push	r0
+ 56a:	0b b6       	in	r0, 0x3b	; 59
+ 56c:	0f 92       	push	r0
+ 56e:	11 24       	eor	r1, r1
+ 570:	2f 93       	push	r18
+ 572:	3f 93       	push	r19
+ 574:	4f 93       	push	r20
+ 576:	5f 93       	push	r21
+ 578:	6f 93       	push	r22
+ 57a:	7f 93       	push	r23
+ 57c:	8f 93       	push	r24
+ 57e:	9f 93       	push	r25
+ 580:	af 93       	push	r26
+ 582:	bf 93       	push	r27
+ 584:	ef 93       	push	r30
+ 586:	ff 93       	push	r31
+	// CPU automatically calls when TCNT0 == OCR0 (every 1 ms per TimerOn settings)
+	_avr_timer_cntcurr--; 			// Count down to 0 rather than up to TOP
+ 588:	80 91 f8 01 	lds	r24, 0x01F8
+ 58c:	90 91 f9 01 	lds	r25, 0x01F9
+ 590:	a0 91 fa 01 	lds	r26, 0x01FA
+ 594:	b0 91 fb 01 	lds	r27, 0x01FB
+ 598:	01 97       	sbiw	r24, 0x01	; 1
+ 59a:	a1 09       	sbc	r26, r1
+ 59c:	b1 09       	sbc	r27, r1
+ 59e:	80 93 f8 01 	sts	0x01F8, r24
+ 5a2:	90 93 f9 01 	sts	0x01F9, r25
+ 5a6:	a0 93 fa 01 	sts	0x01FA, r26
+ 5aa:	b0 93 fb 01 	sts	0x01FB, r27
+	if (_avr_timer_cntcurr == 0) { 	// results in a more efficient compare
+ 5ae:	00 97       	sbiw	r24, 0x00	; 0
+ 5b0:	a1 05       	cpc	r26, r1
+ 5b2:	b1 05       	cpc	r27, r1
+ 5b4:	91 f4       	brne	.+36     	; 0x5da <__vector_13+0x78>
+		TimerISR(); 				// Call the ISR that the user uses
+ 5b6:	0e 94 ad 02 	call	0x55a	; 0x55a <TimerISR>
+		_avr_timer_cntcurr = _avr_timer_M;
+ 5ba:	80 91 ed 01 	lds	r24, 0x01ED
+ 5be:	90 91 ee 01 	lds	r25, 0x01EE
+ 5c2:	a0 91 ef 01 	lds	r26, 0x01EF
+ 5c6:	b0 91 f0 01 	lds	r27, 0x01F0
+ 5ca:	80 93 f8 01 	sts	0x01F8, r24
+ 5ce:	90 93 f9 01 	sts	0x01F9, r25
+ 5d2:	a0 93 fa 01 	sts	0x01FA, r26
+ 5d6:	b0 93 fb 01 	sts	0x01FB, r27
+	}
+}
+ 5da:	ff 91       	pop	r31
+ 5dc:	ef 91       	pop	r30
+ 5de:	bf 91       	pop	r27
+ 5e0:	af 91       	pop	r26
+ 5e2:	9f 91       	pop	r25
+ 5e4:	8f 91       	pop	r24
+ 5e6:	7f 91       	pop	r23
+ 5e8:	6f 91       	pop	r22
+ 5ea:	5f 91       	pop	r21
+ 5ec:	4f 91       	pop	r20
+ 5ee:	3f 91       	pop	r19
+ 5f0:	2f 91       	pop	r18
+ 5f2:	0f 90       	pop	r0
+ 5f4:	0b be       	out	0x3b, r0	; 59
+ 5f6:	0f 90       	pop	r0
+ 5f8:	0f be       	out	0x3f, r0	; 63
+ 5fa:	0f 90       	pop	r0
+ 5fc:	1f 90       	pop	r1
+ 5fe:	18 95       	reti
+
+00000600 <findGCD>:
+
+// --------------------- Find GCD Function --------------------- //
+unsigned long int findGCD (unsigned long int a, unsigned long int b)
+{
+ 600:	0f 93       	push	r16
+ 602:	1f 93       	push	r17
+ 604:	cf 93       	push	r28
+ 606:	df 93       	push	r29
+ 608:	f6 2f       	mov	r31, r22
+ 60a:	e7 2f       	mov	r30, r23
+ 60c:	02 2f       	mov	r16, r18
+ 60e:	13 2f       	mov	r17, r19
+ 610:	d4 2f       	mov	r29, r20
+ 612:	c5 2f       	mov	r28, r21
+ 614:	04 c0       	rjmp	.+8      	; 0x61e <findGCD+0x1e>
+	{
+		c = a % b;
+		if (c == 0)
+		return b;
+		a = b;
+		b = c;
+ 616:	0b 2f       	mov	r16, r27
+ 618:	1a 2f       	mov	r17, r26
+ 61a:	d3 2f       	mov	r29, r19
+ 61c:	c2 2f       	mov	r28, r18
+unsigned long int findGCD (unsigned long int a, unsigned long int b)
+{
+	unsigned long int c;
+	while (1)
+	{
+		c = a % b;
+ 61e:	6f 2f       	mov	r22, r31
+ 620:	7e 2f       	mov	r23, r30
+ 622:	20 2f       	mov	r18, r16
+ 624:	31 2f       	mov	r19, r17
+ 626:	4d 2f       	mov	r20, r29
+ 628:	5c 2f       	mov	r21, r28
+ 62a:	0e 94 c2 03 	call	0x784	; 0x784 <__udivmodsi4>
+ 62e:	ab 01       	movw	r20, r22
+ 630:	bc 01       	movw	r22, r24
+ 632:	f0 2f       	mov	r31, r16
+ 634:	e1 2f       	mov	r30, r17
+ 636:	8d 2f       	mov	r24, r29
+ 638:	9c 2f       	mov	r25, r28
+		if (c == 0)
+		return b;
+		a = b;
+		b = c;
+ 63a:	b4 2f       	mov	r27, r20
+ 63c:	a5 2f       	mov	r26, r21
+ 63e:	36 2f       	mov	r19, r22
+ 640:	27 2f       	mov	r18, r23
+{
+	unsigned long int c;
+	while (1)
+	{
+		c = a % b;
+		if (c == 0)
+ 642:	41 15       	cp	r20, r1
+ 644:	51 05       	cpc	r21, r1
+ 646:	61 05       	cpc	r22, r1
+ 648:	71 05       	cpc	r23, r1
+ 64a:	29 f7       	brne	.-54     	; 0x616 <findGCD+0x16>
+		return b;
+		a = b;
+		b = c;
+	}
+	return 0;
+}
+ 64c:	60 2f       	mov	r22, r16
+ 64e:	71 2f       	mov	r23, r17
+ 650:	df 91       	pop	r29
+ 652:	cf 91       	pop	r28
+ 654:	1f 91       	pop	r17
+ 656:	0f 91       	pop	r16
+ 658:	08 95       	ret
+
+0000065a <main>:
+int main(void)
+{
+	// Set Data Direction Registers
+//	DDRA = 0x03; PORTA = 0xFC;
+	
+	DDRA = 0xC0; PORTA = 0x3F;
+ 65a:	80 ec       	ldi	r24, 0xC0	; 192
+ 65c:	81 b9       	out	0x01, r24	; 1
+ 65e:	8f e3       	ldi	r24, 0x3F	; 63
+ 660:	82 b9       	out	0x02, r24	; 2
+	DDRD = 0xFF; PORTD = 0x00;
+ 662:	cf ef       	ldi	r28, 0xFF	; 255
+ 664:	ca b9       	out	0x0a, r28	; 10
+ 666:	1b b8       	out	0x0b, r1	; 11
+    //unsigned long int SMTick3_calc = 1000;
+	//unsigned long int SMTick4_calc = 10;
+     
+    // Calculating GCD
+    unsigned long int tmpGCD = 10;
+	tmpGCD = findGCD(SMTick1_calc, SMTick2_calc);
+ 668:	6a e0       	ldi	r22, 0x0A	; 10
+ 66a:	70 e0       	ldi	r23, 0x00	; 0
+ 66c:	80 e0       	ldi	r24, 0x00	; 0
+ 66e:	90 e0       	ldi	r25, 0x00	; 0
+ 670:	21 e0       	ldi	r18, 0x01	; 1
+ 672:	30 e0       	ldi	r19, 0x00	; 0
+ 674:	40 e0       	ldi	r20, 0x00	; 0
+ 676:	50 e0       	ldi	r21, 0x00	; 0
+ 678:	0e 94 00 03 	call	0x600	; 0x600 <findGCD>
+ 67c:	6b 01       	movw	r12, r22
+ 67e:	7c 01       	movw	r14, r24
+	//Greatest common divisor for all tasks
+	// or smallest time unit for tasks.
+	unsigned long int GCD = tmpGCD;
+     
+    // Recalculate GCD for Scheduler
+    unsigned long int SMTick1_period = SMTick1_calc/GCD;
+ 680:	6a e0       	ldi	r22, 0x0A	; 10
+ 682:	70 e0       	ldi	r23, 0x00	; 0
+ 684:	80 e0       	ldi	r24, 0x00	; 0
+ 686:	90 e0       	ldi	r25, 0x00	; 0
+ 688:	a7 01       	movw	r20, r14
+ 68a:	96 01       	movw	r18, r12
+ 68c:	0e 94 c2 03 	call	0x784	; 0x784 <__udivmodsi4>
+    static task task1;
+    task *tasks[] = {&task1};
+    const unsigned short numTasks = sizeof(tasks)/sizeof(task*);
+     
+    // SM Task 1
+    task1.state = -1;
+ 690:	8d ef       	ldi	r24, 0xFD	; 253
+ 692:	91 e0       	ldi	r25, 0x01	; 1
+ 694:	c0 93 fd 01 	sts	0x01FD, r28
+    task1.period = SMTick1_period;
+ 698:	fc 01       	movw	r30, r24
+ 69a:	31 96       	adiw	r30, 0x01	; 1
+ 69c:	20 93 fe 01 	sts	0x01FE, r18
+ 6a0:	31 83       	std	Z+1, r19	; 0x01
+ 6a2:	42 83       	std	Z+2, r20	; 0x02
+ 6a4:	53 83       	std	Z+3, r21	; 0x03
+    task1.elapsedTime = SMTick1_period;
+ 6a6:	fc 01       	movw	r30, r24
+ 6a8:	35 96       	adiw	r30, 0x05	; 5
+ 6aa:	20 93 02 02 	sts	0x0202, r18
+ 6ae:	31 83       	std	Z+1, r19	; 0x01
+ 6b0:	42 83       	std	Z+2, r20	; 0x02
+ 6b2:	53 83       	std	Z+3, r21	; 0x03
+    task1.TickFct = &SMTick1;
+ 6b4:	86 ef       	ldi	r24, 0xF6	; 246
+ 6b6:	90 e0       	ldi	r25, 0x00	; 0
+ 6b8:	90 93 07 02 	sts	0x0207, r25
+ 6bc:	80 93 06 02 	sts	0x0206, r24
+     
+	//Set timer and turn it on 
+    TimerSet(GCD);
+ 6c0:	c7 01       	movw	r24, r14
+ 6c2:	b6 01       	movw	r22, r12
+ 6c4:	0e 94 73 02 	call	0x4e6	; 0x4e6 <TimerSet>
+    TimerOn();
+ 6c8:	0e 94 86 02 	call	0x50c	; 0x50c <TimerOn>
+	//Scheduler for-loop iterator 
+    unsigned short i;
+    while (1)
+    {			
+		//Schedule code
+        for (i = 0; i < numTasks; i++)
+ 6cc:	80 e0       	ldi	r24, 0x00	; 0
+ 6ce:	90 e0       	ldi	r25, 0x00	; 0
+ 6d0:	00 e0       	ldi	r16, 0x00	; 0
+ 6d2:	10 e0       	ldi	r17, 0x00	; 0
+        {
+			//Task is ready to tick
+            if (tasks[i]->elapsedTime  == tasks[i]->period)
+ 6d4:	c2 e0       	ldi	r28, 0x02	; 2
+ 6d6:	d2 e0       	ldi	r29, 0x02	; 2
+ 6d8:	0f 2e       	mov	r0, r31
+ 6da:	fc ef       	ldi	r31, 0xFC	; 252
+ 6dc:	ef 2e       	mov	r14, r31
+ 6de:	ff ef       	ldi	r31, 0xFF	; 255
+ 6e0:	ff 2e       	mov	r15, r31
+ 6e2:	f0 2d       	mov	r31, r0
+ 6e4:	ec 0e       	add	r14, r28
+ 6e6:	fd 1e       	adc	r15, r29
+	//Scheduler for-loop iterator 
+    unsigned short i;
+    while (1)
+    {			
+		//Schedule code
+        for (i = 0; i < numTasks; i++)
+ 6e8:	cc 24       	eor	r12, r12
+ 6ea:	dd 24       	eor	r13, r13
+ 6ec:	c3 94       	inc	r12
+        {
+			//Task is ready to tick
+            if (tasks[i]->elapsedTime  == tasks[i]->period)
+            {
+				//Set next state for task
+                tasks[i]->state = tasks[i]->TickFct(tasks[i]->state);
+ 6ee:	0f 2e       	mov	r0, r31
+ 6f0:	f6 e0       	ldi	r31, 0x06	; 6
+ 6f2:	8f 2e       	mov	r8, r31
+ 6f4:	f2 e0       	ldi	r31, 0x02	; 2
+ 6f6:	9f 2e       	mov	r9, r31
+ 6f8:	f0 2d       	mov	r31, r0
+ 6fa:	0f 2e       	mov	r0, r31
+ 6fc:	f7 ef       	ldi	r31, 0xF7	; 247
+ 6fe:	af 2e       	mov	r10, r31
+ 700:	ff ef       	ldi	r31, 0xFF	; 255
+ 702:	bf 2e       	mov	r11, r31
+ 704:	f0 2d       	mov	r31, r0
+ 706:	a8 0c       	add	r10, r8
+ 708:	b9 1c       	adc	r11, r9
+				//Reset elapse time for next tick
+                tasks[i]->elapsedTime = 0;
+ 70a:	0f 2e       	mov	r0, r31
+ 70c:	f5 e0       	ldi	r31, 0x05	; 5
+ 70e:	6f 2e       	mov	r6, r31
+ 710:	77 24       	eor	r7, r7
+ 712:	f0 2d       	mov	r31, r0
+ 714:	6a 0c       	add	r6, r10
+ 716:	7b 1c       	adc	r7, r11
+ 718:	2b c0       	rjmp	.+86     	; 0x770 <main+0x116>
+    {			
+		//Schedule code
+        for (i = 0; i < numTasks; i++)
+        {
+			//Task is ready to tick
+            if (tasks[i]->elapsedTime  == tasks[i]->period)
+ 71a:	88 81       	ld	r24, Y
+ 71c:	99 81       	ldd	r25, Y+1	; 0x01
+ 71e:	aa 81       	ldd	r26, Y+2	; 0x02
+ 720:	bb 81       	ldd	r27, Y+3	; 0x03
+ 722:	f7 01       	movw	r30, r14
+ 724:	40 81       	ld	r20, Z
+ 726:	51 81       	ldd	r21, Z+1	; 0x01
+ 728:	62 81       	ldd	r22, Z+2	; 0x02
+ 72a:	73 81       	ldd	r23, Z+3	; 0x03
+ 72c:	84 17       	cp	r24, r20
+ 72e:	95 07       	cpc	r25, r21
+ 730:	a6 07       	cpc	r26, r22
+ 732:	b7 07       	cpc	r27, r23
+ 734:	89 f4       	brne	.+34     	; 0x758 <main+0xfe>
+            {
+				//Set next state for task
+                tasks[i]->state = tasks[i]->TickFct(tasks[i]->state);
+ 736:	d5 01       	movw	r26, r10
+ 738:	8c 91       	ld	r24, X
+ 73a:	d4 01       	movw	r26, r8
+ 73c:	ed 91       	ld	r30, X+
+ 73e:	fc 91       	ld	r31, X
+ 740:	99 27       	eor	r25, r25
+ 742:	87 fd       	sbrc	r24, 7
+ 744:	90 95       	com	r25
+ 746:	09 95       	icall
+ 748:	f5 01       	movw	r30, r10
+ 74a:	80 83       	st	Z, r24
+				//Reset elapse time for next tick
+                tasks[i]->elapsedTime = 0;
+ 74c:	d3 01       	movw	r26, r6
+ 74e:	1d 92       	st	X+, r1
+ 750:	1d 92       	st	X+, r1
+ 752:	1d 92       	st	X+, r1
+ 754:	1c 92       	st	X, r1
+ 756:	13 97       	sbiw	r26, 0x03	; 3
+            }
+            tasks[i]->elapsedTime += 1;
+ 758:	88 81       	ld	r24, Y
+ 75a:	99 81       	ldd	r25, Y+1	; 0x01
+ 75c:	aa 81       	ldd	r26, Y+2	; 0x02
+ 75e:	bb 81       	ldd	r27, Y+3	; 0x03
+ 760:	01 96       	adiw	r24, 0x01	; 1
+ 762:	a1 1d       	adc	r26, r1
+ 764:	b1 1d       	adc	r27, r1
+ 766:	88 83       	st	Y, r24
+ 768:	99 83       	std	Y+1, r25	; 0x01
+ 76a:	aa 83       	std	Y+2, r26	; 0x02
+ 76c:	bb 83       	std	Y+3, r27	; 0x03
+	//Scheduler for-loop iterator 
+    unsigned short i;
+    while (1)
+    {			
+		//Schedule code
+        for (i = 0; i < numTasks; i++)
+ 76e:	c6 01       	movw	r24, r12
+ 770:	00 97       	sbiw	r24, 0x00	; 0
+ 772:	99 f2       	breq	.-90     	; 0x71a <main+0xc0>
+				//Reset elapse time for next tick
+                tasks[i]->elapsedTime = 0;
+            }
+            tasks[i]->elapsedTime += 1;
+        }
+        while (!TimerFlag);
+ 774:	80 91 fc 01 	lds	r24, 0x01FC
+ 778:	88 23       	and	r24, r24
+ 77a:	e1 f3       	breq	.-8      	; 0x774 <main+0x11a>
+        TimerFlag = 0;
+ 77c:	10 92 fc 01 	sts	0x01FC, r1
+	//Scheduler for-loop iterator 
+    unsigned short i;
+    while (1)
+    {			
+		//Schedule code
+        for (i = 0; i < numTasks; i++)
+ 780:	c8 01       	movw	r24, r16
+		
+		
+		
+		
+		
+    }
+ 782:	f6 cf       	rjmp	.-20     	; 0x770 <main+0x116>
+
+00000784 <__udivmodsi4>:
+ 784:	a1 e2       	ldi	r26, 0x21	; 33
+ 786:	1a 2e       	mov	r1, r26
+ 788:	aa 1b       	sub	r26, r26
+ 78a:	bb 1b       	sub	r27, r27
+ 78c:	fd 01       	movw	r30, r26
+ 78e:	0d c0       	rjmp	.+26     	; 0x7aa <__udivmodsi4_ep>
+
+00000790 <__udivmodsi4_loop>:
+ 790:	aa 1f       	adc	r26, r26
+ 792:	bb 1f       	adc	r27, r27
+ 794:	ee 1f       	adc	r30, r30
+ 796:	ff 1f       	adc	r31, r31
+ 798:	a2 17       	cp	r26, r18
+ 79a:	b3 07       	cpc	r27, r19
+ 79c:	e4 07       	cpc	r30, r20
+ 79e:	f5 07       	cpc	r31, r21
+ 7a0:	20 f0       	brcs	.+8      	; 0x7aa <__udivmodsi4_ep>
+ 7a2:	a2 1b       	sub	r26, r18
+ 7a4:	b3 0b       	sbc	r27, r19
+ 7a6:	e4 0b       	sbc	r30, r20
+ 7a8:	f5 0b       	sbc	r31, r21
+
+000007aa <__udivmodsi4_ep>:
+ 7aa:	66 1f       	adc	r22, r22
+ 7ac:	77 1f       	adc	r23, r23
+ 7ae:	88 1f       	adc	r24, r24
+ 7b0:	99 1f       	adc	r25, r25
+ 7b2:	1a 94       	dec	r1
+ 7b4:	69 f7       	brne	.-38     	; 0x790 <__udivmodsi4_loop>
+ 7b6:	60 95       	com	r22
+ 7b8:	70 95       	com	r23
+ 7ba:	80 95       	com	r24
+ 7bc:	90 95       	com	r25
+ 7be:	9b 01       	movw	r18, r22
+ 7c0:	ac 01       	movw	r20, r24
+ 7c2:	bd 01       	movw	r22, r26
+ 7c4:	cf 01       	movw	r24, r30
+ 7c6:	08 95       	ret
+
+000007c8 <_exit>:
+ 7c8:	f8 94       	cli
+
+000007ca <__stop_program>:
+ 7ca:	ff cf       	rjmp	.-2      	; 0x7ca <__stop_program>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "dropball", "dropball.cproj", "{F4E16D7D-8596-449E-B8D1-0F799CEA9612}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4E16D7D-8596-449E-B8D1-0F799CEA9612}.Debug|AVR.ActiveCfg = Debug|AVR
+		{F4E16D7D-8596-449E-B8D1-0F799CEA9612}.Debug|AVR.Build.0 = Debug|AVR
+		{F4E16D7D-8596-449E-B8D1-0F799CEA9612}.Release|AVR.ActiveCfg = Release|AVR
+		{F4E16D7D-8596-449E-B8D1-0F799CEA9612}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
