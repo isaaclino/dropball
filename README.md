@@ -1,2 +1,2 @@
-# dropball
-Custom game created using Atmel micro controllers
+# Dropball
+Custom game created using Atmel microcontrollers atmega1284
